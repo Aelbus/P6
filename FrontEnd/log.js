@@ -1,4 +1,4 @@
-const errorMsgLogin = document.getElementById("error-msg-login");
+const errorMessage = document.getElementById("error-msg-login");
 
 document.getElementById("btn-login").addEventListener("click", async (e) => {
     const email = document.getElementById("email").value;
@@ -10,15 +10,15 @@ document.getElementById("btn-login").addEventListener("click", async (e) => {
             "Content-Type": "application/json",
         },
         method: "POST",
-        loginResponse: JSON.stringify({ email: email, password: password }),
+        body: JSON.stringify({ email: email, password: password }),
     });
 
-    const loginResponse = await response.json();
-        if (loginResponse.token === undefined) {
-            errorMsgLogin.textContent = "Mot de passe ou adresse email incorrect";
+    const body = await response.json();
+        if (body.token === undefined) {
+            errorMessage.textContent = "Mot de passe ou adresse email incorrect";
         } 
         else {
-        setLoginCookie("token", loginResponse.token, 3600);
+        setLoginCookie("token", body.token, 3600);
         window.location.href = "http://" + window.location.hostname + ":" + window.location.port + "/index.html";
         }
 });
