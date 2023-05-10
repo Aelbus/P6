@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Login</title>
 </head>
-<body>
+<body >
 
     <header>
         <a href="index.html">
@@ -19,8 +19,8 @@
         </a>
         <nav>
             <ul>
-                <li>projets</li>
-                <li>contact</li>
+                <li><a href="#">projets</a></li>
+				<li><a href="#">contact</a></li>
                 <li><a href="./login.html" id="login">login</a></li>
                 <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
             </ul>
@@ -34,10 +34,10 @@
                 <h2>Log in</h2>                
                 <form class="input-form">
 
-                    <p class="input-form-title">E-Mail</p>     
+                    <label for="email">E-Mail</label>     
                     <input type="email" name="email" id="email">
 
-                    <p class="input-form-title">Mot de passe</p>
+                    <label for="password">Mot de passe</label>
                     <input type="password" name="pass" id="password">
 
                     <div class="btn-login-container">
@@ -51,6 +51,14 @@
         </section>
 
     </main>
+
+    <footer>
+		<nav>
+			<ul>
+				<li>Mentions Légales</li>
+			</ul>
+		</nav>
+	</footer>
     
 </body>
 </html>

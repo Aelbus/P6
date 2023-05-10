@@ -48,10 +48,11 @@ table {
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
+	width: 1140px;
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background: #FFFEF8;
 }
 header {
 	display: flex;
@@ -75,10 +76,9 @@ h1 > span {
 	font-family: 'Work Sans';
 	font-size:10px;
 	letter-spacing: 0.1em;
-;
 }
 
-h2{
+h2 {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
@@ -126,7 +126,16 @@ li:hover {
 	margin-bottom: 1em;
 }
 a {
+	color: #3D3D3D;
 	text-decoration: none;
+}
+a:hover {
+	color: #B1663C;
+}
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 }
 /** BTN FILTRE **/
 
@@ -224,6 +233,7 @@ footer nav ul {
 
 .user-login-container {
 	margin-top: 100px;
+	height: 625px;
 }
 .login-form {
 	display: flex;
@@ -236,7 +246,7 @@ footer nav ul {
 	flex-direction: column;
 	justify-content: flex-start;
 }
-.input-form-title {
+.input-form label {
 	margin-top: 20px;
 	font-family: 'Work Sans';
 	font-weight: 500;
@@ -290,3 +300,4 @@ footer nav ul {
 	color: #3D3D3D;
 }
 
+/** -- **/
