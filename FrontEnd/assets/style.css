@@ -299,5 +299,12 @@ footer nav ul {
 	text-decoration-line: underline;
 	color: #3D3D3D;
 }
-
+.btn-login-container p {
+	font-family: 'Work Sans';
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 16px;
+	color: rgb(230, 28, 28);
+	margin-bottom: 10px;
+}
 /** -- **/
