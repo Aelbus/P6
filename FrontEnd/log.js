@@ -15,7 +15,7 @@ document.getElementById("btn-login").addEventListener("click", async (e) => {
 
     const body = await response.json();
         if (body.token === undefined) {
-            errorMessage.textContent = "Mot de passe ou adresse email incorrect";
+            errorMessage.textContent = "E-mail ou Mot de passe incorrect";
         } 
         else {
         setLoginCookie("token", body.token, 3600);
