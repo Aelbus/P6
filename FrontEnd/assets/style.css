@@ -103,6 +103,7 @@ li:hover {
 	align-items: center;
 }
 #introduction figure {
+	position: relative;
 	flex: 1
 }
 #introduction img {
@@ -112,6 +113,7 @@ li:hover {
 }
 
 #introduction article {
+	position: relative;
 	flex: 1
 }
 #introduction h2 {
@@ -138,37 +140,10 @@ footer {
 	justify-content: flex-end;
 	background: #FFFFFF;
 }
-/** BTN FILTRE **/
 
-.btn-filter-container {
+.portfolio-title {
 	position: relative;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	margin-bottom: 51px;
 }
-
-.btn-filter {
-	border: 1px solid #1D6154;
-	border-radius: 60px;
-	margin-right: 10px;
-	font-family: 'Syne';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 16px;
-	padding: 9px;
-	color: #1D6154;
-	cursor: pointer;
-}
-
-.btn-filter:focus {
-	color: #FFFFFF;
-	background: #1D6154;
-	border: 1px solid #1D6154;
-}
-
-/** -- **/
-
 .gallery {
 	width: 100%;
 	display: grid;
@@ -230,6 +205,30 @@ footer nav ul {
 	margin: 2em
 }
 
+/* BTN FILTRE */
+.btn-filter-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 51px;
+}
+.btn-filter {
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	margin-right: 10px;
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	padding: 9px;
+	color: #1D6154;
+	cursor: pointer;
+}
+.btn-filter:focus {
+	color: #FFFFFF;
+	background: #1D6154;
+	border: 1px solid #1D6154;
+}
 /* login page */
 .user-login-container {
 	margin-top: 100px;
@@ -307,8 +306,6 @@ footer nav ul {
 	color: rgb(230, 28, 28);
 	margin-bottom: 10px;
 }
-/** -- **/
-
 /** Barre d'edition **/
 .container-edit {
 	background: #000000;
@@ -317,7 +314,7 @@ footer nav ul {
 	justify-content: center;
 	padding: 10px;
 	gap: 20px;
-	/**display: none; **/
+	/*display: none;**/
 }
 .info-edit {
 	color: #FFFFFF;
@@ -337,4 +334,76 @@ footer nav ul {
 	font-weight: 700;
 	padding: 10px;
 }
-/** -- **/
+/** Bouton edition **/
+.btn-modifier {
+	/**display: none;**/
+	position: absolute;
+	border: none;
+	background: none;
+	padding: 4px 8px;
+	cursor: pointer;
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 16px;
+	text-align: center;
+}
+	.btn-edit-pp {
+		bottom: -30px;
+		left: 52px;
+	}
+	.btn-edit-article {
+		top: -30px;
+		left: -6px;
+	}
+	.btn-edit-portfolio {
+	top: 5px;
+	right: 330px;
+	}
+
+/* Modal */
+.modal-container {
+	display: none;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	top: 59.2px;
+	left: 0;
+	position: Fixed;
+}
+.modal-overlay {
+	width: 100%;
+	height: 100%;
+	background: #0000007c;
+}
+.modal {
+	background: #FFFFFF;
+	width: 630px;
+	height: 730px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	padding: 60px 105px 48px 105px;
+}
+.modal-works {
+	display: flex;
+	row-gap: 9px;
+	column-gap: 13px;
+}
+.modal-figure {
+	width: 76px;
+	height: 102px;
+}
+.modal-figure figcaption {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
+
+
+text-align: center;
+}

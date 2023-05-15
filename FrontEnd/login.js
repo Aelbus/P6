@@ -17,11 +17,11 @@ document.getElementById("btn-login").addEventListener("click", async (e) => {
     if (body.token === undefined) {
         errorMessage.textContent = "E-mail ou Mot de passe incorrect";
     } else {
-        setLoginLocalStorage("token", body.token);
+        setLoginCookie("token", body.token, 3600);
         window.location.href = "http://" + window.location.hostname + ":" + window.location.port + "/index.html";
-    }
+        }
 });
 
-function setLoginLocalStorage(key, content) {
-    localStorage.setItem(key, content);
+function setLoginCookie(key, content, expiration) {
+  document.cookie = `${key}=${content} path=/; max-age=${expiration}`;
 }
