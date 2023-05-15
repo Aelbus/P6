@@ -1,0 +1,17 @@
+<i class="fa-regular fa-pen-to-square"></i> 
+(crayon)
+
+<i class="fa-solid fa-arrow-left"></i> 
+(fleche)
+
+<i class="fa-solid fa-arrows-up-down-left-right"></i> 
+(multiple fleche)
+
+<i class="fa-solid fa-trash-can"></i> 
+(corbeille)
+
+<i class="fa-regular fa-image"></i> 
+(img)
+
+<i class="fa-solid fa-xmark"></i> 
+(croix)
