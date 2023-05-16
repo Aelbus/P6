@@ -400,20 +400,22 @@ footer {
 }
 .btn-exit {
 	position: absolute;
-	top: 32px;
-	right: 36px;
+	top: 20px;
+	right: 20px;
 	background: white;
 	border: none;
 }
 .btn-back {
 	position: absolute;
-	top: 32px;
-	left: 36px;
+	top: 20px;
+	left: 20px;
 	background: white;
 	border: none;
 }
 .btn-exit i, .btn-back i {
 	font-weight: 600;
+	font-size: 24px;
+	cursor: pointer;
 }
 /* Modal Galery*/
 .galeryContainer{

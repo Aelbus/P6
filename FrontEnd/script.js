@@ -75,16 +75,49 @@ window.addEventListener("DOMContentLoaded", function () {
     loginLink.addEventListener("click", function () {
       localStorage.removeItem("token");
       localStorage.removeItem("isLoggedIn");
-      window.location.href = "index.html";
+      window.location.href = "index.html"; //A VERIF
     });
     //-- Afficher la div "container-edit"
     const containerEdit = document.querySelector(".container-edit");
     containerEdit.style.display = "flex";
 
-    // Afficher les boutons "btn-modifier"
+    //-- Afficher les boutons "btn-modifier"
     const btnModifier = document.querySelectorAll(".btn-modifier");
     btnModifier.forEach(function (button) {
       button.style.display = "inline-block";
     });
   }
 });
+
+const modal = document.querySelector(".modal");
+const modalContainer = document.querySelector(".modalContainer");
+const modalGalery = document.getElementById("modalGalery");
+const modalAdd = document.getElementById("modalAdd");
+
+const modalTrigger = document.getElementById("modal-trigger");
+modalTrigger.addEventListener("click", function () {
+  modal.style.display = "block";
+})
+
+const exitModal = document.querySelector(".btn-exit");
+exitModal.addEventListener("click", function () {
+  modal.style.display = "none";
+})
+//-- Fermeture Modal clique en dehors
+window.addEventListener("click", function (event) {
+  if (event.target === modalContainer) {
+    modal.style.display = "none";
+  }
+});
+
+const addPicture = document.querySelector(".btn-addWork")
+addPicture.addEventListener("click", function (){
+  modalGalery.style.display = "none";
+  modalAdd.style.display = "block";
+})
+
+const returnModal = document.querySelector(".btn-back")
+returnModal.addEventListener("click", function (){
+  modalAdd.style.display = "none";
+  modalGalery.style.display = "block";
+})
