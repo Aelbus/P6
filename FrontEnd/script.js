@@ -64,3 +64,27 @@ async function showWorksByCategory(categoryId) {
   });
 }
 showWorksByCategory(0);
+
+//-- Gestion de la connexion 
+window.addEventListener("DOMContentLoaded", function () {
+  const loginLink = document.getElementById("login");
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  if (isLoggedIn) {
+    loginLink.textContent = "Logout";
+    loginLink.addEventListener("click", function () {
+      localStorage.removeItem("token");
+      localStorage.removeItem("isLoggedIn");
+      window.location.href = "index.html";
+    });
+    //-- Afficher la div "container-edit"
+    const containerEdit = document.querySelector(".container-edit");
+    containerEdit.style.display = "flex";
+
+    // Afficher les boutons "btn-modifier"
+    const btnModifier = document.querySelectorAll(".btn-modifier");
+    btnModifier.forEach(function (button) {
+      button.style.display = "inline-block";
+    });
+  }
+});

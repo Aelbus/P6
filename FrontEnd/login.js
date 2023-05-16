@@ -16,12 +16,14 @@ document.getElementById("btn-login").addEventListener("click", async (e) => {
     const body = await response.json();
     if (body.token === undefined) {
         errorMessage.textContent = "E-mail ou Mot de passe incorrect";
-    } else {
-        setLoginCookie("token", body.token, 3600);
-        window.location.href = "http://" + window.location.hostname + ":" + window.location.port + "/index.html";
-        }
+    } 
+    else {
+        setLocalStorageItem("token", body.token);
+        setLocalStorageItem("isLoggedIn", true);
+        window.location.href = "index.html";
+      }
 });
 
-function setLoginCookie(key, content, expiration) {
-  document.cookie = `${key}=${content} path=/; max-age=${expiration}`;
+function setLocalStorageItem(key, content) {
+    localStorage.setItem(key, content);
 }
