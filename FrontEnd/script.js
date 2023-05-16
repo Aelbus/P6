@@ -47,12 +47,12 @@ async function showWorksByCategory(categoryId) {
     return;
   }
   gallery.innerHTML = "";
-  let arrWorks = await getWorks();
+  let itemWorks = await getWorks();
   if (categoryId !== 0) {
-    arrWorks = arrWorks.filter(work => work.categoryId === categoryId);
+    itemWorks = itemWorks.filter(work => work.categoryId === categoryId);
   }
 
-  arrWorks.forEach(work => {
+  itemWorks.forEach(work => {
     const figureGallery = document.createElement(`figure`);
     const figureImgGallery = document.createElement(`img`);
     const figureFigCaptionGallery = document.createElement(`figcaption`);
