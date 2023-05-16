@@ -94,11 +94,13 @@ const modalContainer = document.querySelector(".modalContainer");
 const modalGalery = document.getElementById("modalGalery");
 const modalAdd = document.getElementById("modalAdd");
 
+//-- Afficher La Modal
 const modalTrigger = document.getElementById("modal-trigger");
 modalTrigger.addEventListener("click", function () {
   modal.style.display = "block";
 })
 
+//-- Fermer la Modal
 const exitModal = document.querySelector(".btn-exit");
 exitModal.addEventListener("click", function () {
   modal.style.display = "none";
@@ -110,12 +112,14 @@ window.addEventListener("click", function (event) {
   }
 });
 
+//-- Passage sur la modal ajouter photo
 const addPicture = document.querySelector(".btn-addWork")
 addPicture.addEventListener("click", function (){
   modalGalery.style.display = "none";
   modalAdd.style.display = "block";
 })
 
+//-- Retour sur la modal Galery
 const returnModal = document.querySelector(".btn-back")
 returnModal.addEventListener("click", function (){
   modalAdd.style.display = "none";
