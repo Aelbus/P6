@@ -105,7 +105,6 @@ const exitModal = document.querySelector(".btn-exit");
 exitModal.addEventListener("click", function () {
   modal.style.display = "none";
 })
-//-- Fermeture Modal clique en dehors
 window.addEventListener("click", function (event) {
   if (event.target === modalContainer) {
     modal.style.display = "none";

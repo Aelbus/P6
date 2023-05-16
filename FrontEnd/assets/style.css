@@ -298,6 +298,7 @@ footer {
 	line-height: 17px;
 	font-weight: 700;
 	padding: 10px;
+	cursor: pointer;
 }
 
 /** Bouton Modifier **/
