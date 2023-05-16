@@ -71,81 +71,77 @@
 				
 					<h2>Mes Projets</h2>
 
-					<button id="modal-trigger" class="btn-modifier btn-edit-portfolio">
+					<button class="btn-modifier btn-edit-portfolio">
 						<i class="fa-regular fa-pen-to-square"></i>  modifier
 					</button>
+					<div class="modal">
+						<div class="modalContainer">
+							<div id="modalGalery">
 
-					<div class="modalContainer">
-
-						<div id="modalGalery">
-
-							<button class="btn-exit">
-								<i class="fa-solid fa-xmark"></i>
-							</button>
-
-							<h2>Galerie photo</h2>
-
-							<div class="galeryContainer"></div>
-
-							<div class="separator"></div>
-
-							<div class="btnModalGalery">
-								<button class="btn-addWork">
-									Ajouter une photo
+								<button class="btn-exit">
+									<i class="fa-solid fa-xmark"></i>
 								</button>
 
-								<button class="btn-delete">
-									Supprimer la galerie
-							</button>
-							</div>
+								<h2>Galerie photo</h2>
 
-						</div>
-
-						<div id="modalAdd">
-
-							<button class="btn-back">
-								<i class="fa-solid fa-arrow-left"></i>
-							</button>
-
-							<button class="btn-exit">
-								<i class="fa-solid fa-xmark"></i> 
-							</button>
-
-							<h2>Ajout photo</h2>
-
-							<form action="#" method="post" id="sendImg">
-
-								<div class="addImg">
-									<i class="fa-regular fa-image"></i>
-									<label for="uploadImg">+ Ajouter photo</label>
-									<input type="file" id="uploadImg" onchange="previewImage(event)">
-									<!-- <img id="preview"> -->
-									<p>jpg, png : 4mo max</p>
-								</div>
-
-								<div class="addImgInfo">
-									<label for="titre">Titre</label>
-									<input type="text" name="titre" id="titre">
-
-									<label for="categorie">Catégorie</label>
-									<select name="categorie" id="categorie"></select>
-								</div>
+								<div class="galeryContainer"></div>
 
 								<div class="separator"></div>
-								<div class="btnModalModalAdd">
-									<button type="submit" class="btn-send">
-										Valider
+
+								<div class="btnModalGalery">
+									<button class="btn-addWork">
+										Ajouter une photo
 									</button>
+
+									<button class="btn-delete">
+										Supprimer la galerie
+								</button>
 								</div>
 
-							</form>
+							</div>
+							<div id="modalAdd">
 
+								<button class="btn-back">
+									<i class="fa-solid fa-arrow-left"></i>
+								</button>
+
+								<button class="btn-exit">
+									<i class="fa-solid fa-xmark"></i> 
+								</button>
+
+								<h2>Ajout photo</h2>
+
+								<form action="#" method="post" id="sendImg">
+
+									<div class="addImg">
+										<i class="fa-regular fa-image"></i>
+										<label for="uploadImg">+ Ajouter photo</label>
+										<input type="file" id="uploadImg" onchange="previewImage(event)">
+										<!-- <img id="preview"> -->
+										<p>jpg, png : 4mo max</p>
+									</div>
+
+									<div class="addImgInfo">
+										<label for="titre">Titre</label>
+										<input type="text" name="titre" id="titre">
+
+										<label for="categorie">Catégorie</label>
+										<select name="categorie" id="categorie"></select>
+									</div>
+
+									<div class="separator"></div>
+									<div class="btnModalModalAdd">
+										<button type="submit" class="btn-send">
+											Valider
+										</button>
+									</div>
+
+								</form>
+
+							</div>
 						</div>
-
 					</div>
-
 				<div class="btn-filter-container">
-					<!--<button class="btn-filter">Tous</button>-->
 				</div>
 
 				<div class="gallery">

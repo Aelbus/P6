@@ -358,20 +358,23 @@ footer {
 }
 
 /* Modal */
-.modalContainer {
-	/*display: none;*/
-	justify-content: center;
-	align-items: center;
-	width: 100vw;
-	height: 100vh;
+.modal {
+	display: none;
 	background:#0000009d;
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 1;
 }
+.modalContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
 #modalGalery, #modalAdd {
-	/*display: none;*/
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	position: relative;
@@ -380,9 +383,6 @@ footer {
 	background: white;
 	border-radius: 10px;
 }
-		#modalGalery{
-			display: none;
-		}
 #modalGalery h2, #modalAdd H2 {
 	font-family: 'Work Sans' ;
 	font-size: 26px;
@@ -462,7 +462,6 @@ footer {
 	border: none;
 	background: none;
 }
-
 /* Modal Add */
 #sendImg {
 	display: flex;
