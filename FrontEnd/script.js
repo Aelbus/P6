@@ -27,14 +27,14 @@ async function displayCategoriesBtn() {
     btnFilter.appendChild(btn);
 
     if (category[i].id === 0) {
-      btn.classList.add(`btn-filter:focus`);
+      btn.classList.add(`btn-filter-focus`);
     }
     btn.addEventListener(`click`, function() {
       const allbtnFilter = document.querySelectorAll(`.btn-filter`);
       allbtnFilter.forEach(btn => {
-        btn.classList.remove(`btn-filter:focus`);
+        btn.classList.remove(`btn-filter-focus`);
       });
-      btn.classList.toggle(`btn-filter:focus`);
+      btn.classList.toggle(`btn-filter-focus`);
       showWorksByCategory(category[i].id);
     });
   }

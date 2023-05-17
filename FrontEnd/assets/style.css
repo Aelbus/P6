@@ -348,11 +348,11 @@ footer {
 	font-style: normal;
 	font-weight: 700;
 	font-size: 16px;
-	padding: 9px;
+	padding: 9px 14px;
 	color: #1D6154;
 	cursor: pointer;
 }
-.btn-filter:focus {
+.btn-filter-focus {
 	color: #FFFFFF;
 	background: #1D6154;
 	border: 1px solid #1D6154;
