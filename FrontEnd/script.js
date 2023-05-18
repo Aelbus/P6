@@ -112,15 +112,63 @@ window.addEventListener("click", function (event) {
 });
 
 //-- Passage sur la modal ajouter photo
-const addPicture = document.querySelector(".btn-addWork")
+const addPicture = document.querySelector(".btn-addWork");
 addPicture.addEventListener("click", function (){
   modalGalery.style.display = "none";
   modalAdd.style.display = "block";
 })
 
 //-- Retour sur la modal Galery
-const returnModal = document.querySelector(".btn-back")
+const returnModal = document.querySelector(".btn-back");
 returnModal.addEventListener("click", function (){
   modalAdd.style.display = "none";
-  modalGalery.style.display = "block";
+  modalGalery.style.display = "flex";
 })
+
+//-- Affichage des element works dans la galery Modal
+function displayWorks(works) {
+  const galeryContainer = document.querySelector('.galeryContainer');
+
+  works.forEach(work => {
+    const figure = document.createElement('figure');
+    const img = document.createElement('img');
+
+    img.src = work.imageUrl;
+    img.alt = work.title;
+
+    figure.appendChild(img);
+
+    const iconsContainer = document.createElement('div');
+    iconsContainer.classList.add('icons-container');
+
+    const resizeIcon = document.createElement('i');
+    resizeIcon.classList.add('fa-solid', 'fa-arrows-up-down-left-right');
+    iconsContainer.appendChild(resizeIcon);
+
+    const deleteIcon = document.createElement('i');
+    deleteIcon.classList.add('fa-solid', 'fa-trash-can');
+    iconsContainer.appendChild(deleteIcon);
+
+    figure.appendChild(iconsContainer);
+
+    const editLink = document.createElement('a');
+    editLink.textContent = 'Éditer';
+    figure.appendChild(editLink);
+
+    // Gestionnaire d'événement pour la suppression
+    deleteIcon.addEventListener('click', () => {
+      deleteWork(work.id);
+      figure.remove();
+    });
+
+    galeryContainer.appendChild(figure);
+  });
+}
+function deleteWork(workId) {
+}
+async function displayWorksInModal() {
+  const works = await getWorks();
+  displayWorks(works);
+}
+
+displayWorksInModal();

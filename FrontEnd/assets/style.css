@@ -375,6 +375,7 @@ footer {
 	height: 100vh;
 }
 #modalGalery, #modalAdd {
+	display: flex;
 	flex-direction: column;
 	align-items: center;
 	position: relative;
@@ -423,9 +424,9 @@ footer {
 	width: 420px;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	grid-column-gap: 7px;
-	grid-row-gap: 10px;
-	overflow-y: auto;
+	grid-column-gap: 4px;
+	grid-row-gap: 18px;
+
 }
 .galeryContainer img {
 	width: 100%;
@@ -433,7 +434,22 @@ footer {
 	object-fit: cover;
 }
 .galeryContainer figure {
+	width: 74px;
+	height: 119px;
 	position: relative;
+}
+.icons-container {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+
+  }
+.icons-container i {
+	font-size: 12px;
+	margin: 2px;
+	color: white;
+	background: #000000;
+	padding: 2px;
 }
 .btnModalGalery {
 	display: flex;
