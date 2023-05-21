@@ -68,14 +68,13 @@ showWorksByCategory(0);
 //-- Gestion de la connexion 
 window.addEventListener("DOMContentLoaded", function () {
   const loginLink = document.getElementById("login");
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const logoutLink = document.getElementById("logout");
 
-  if (isLoggedIn) {
-    loginLink.textContent = "Logout";
-    loginLink.addEventListener("click", function () {
+  if (localStorage.getItem("token")) {
+    loginLink.style.display = "none";
+    logoutLink.style.display = "inline-block"
+    logoutLink.addEventListener("click", function () {
       localStorage.removeItem("token");
-      localStorage.removeItem("isLoggedIn");
-      window.location.href = "index.html"; //A VERIF
     });
     //-- Afficher la div "container-edit"
     const containerEdit = document.querySelector(".container-edit");
@@ -101,12 +100,18 @@ modalTrigger.addEventListener("click", function () {
 })
 
 //-- Fermer la Modal
-const exitModal = document.querySelector(".btn-exit");
-exitModal.addEventListener("click", function () {
-  modal.style.display = "none";
-})
+const exitModal = document.querySelectorAll(".btn-exit");
+exitModal.forEach(exitButton => 
+  exitButton.addEventListener("click", function () {
+    modalAdd.style.display = "none";
+    modalGalery.style.display = "flex";
+    modal.style.display = "none";
+  })
+)
 window.addEventListener("click", function (event) {
   if (event.target === modalContainer) {
+    modalGalery.style.display = "flex"
+    modalAdd.style.display = "none";
     modal.style.display = "none";
   }
 });
@@ -142,7 +147,7 @@ function displayWorks(works) {
     iconsContainer.classList.add('icons-container');
 
     const resizeIcon = document.createElement('i');
-    resizeIcon.classList.add('fa-solid', 'fa-arrows-up-down-left-right');
+    resizeIcon.classList.add('fa-solid', 'fa-arrows-up-down-left-right', 'resize-ico');
     iconsContainer.appendChild(resizeIcon);
 
     const deleteIcon = document.createElement('i');

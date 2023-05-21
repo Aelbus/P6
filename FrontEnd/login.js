@@ -19,7 +19,6 @@ document.getElementById("btn-login").addEventListener("click", async (e) => {
     } 
     else {
         setLocalStorageItem("token", body.token);
-        setLocalStorageItem("isLoggedIn", true);
         window.location.href = "index.html";
       }
 });

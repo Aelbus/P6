@@ -93,6 +93,7 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
+	margin: 0;
 }
 nav li {
 	padding: 0 10px;
@@ -269,6 +270,10 @@ footer {
 	line-height: 16px;
 	color: rgb(230, 28, 28);
 	margin-bottom: 10px;
+}
+#logout {
+	display: none;
+
 }
 
 /** Barre d'edition **/
@@ -450,6 +455,12 @@ footer {
 	color: white;
 	background: #000000;
 	padding: 2px;
+}
+.resize-ico{
+	display: none;
+}
+.galeryContainer figure:hover .resize-ico{
+	display: inline-block;
 }
 .btnModalGalery {
 	display: flex;
