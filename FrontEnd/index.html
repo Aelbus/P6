@@ -114,11 +114,15 @@
 								<h2>Ajout photo</h2>
 
 								<form action="#" method="post" id="sendImg">
-
+									<div id="returnPreview">
+										<i class="fa-solid fa-arrows-rotate"></i>
+									</div>
 									<div class="addImg">
+
 										<i class="fa-regular fa-image"></i>
 										<label for="uploadImg">+ Ajouter photo</label>
-										<input type="file" id="uploadImg">
+										<input type="file" id="uploadImg" onchange="previewPicture(this)">
+										<img src="#" alt="" id="imagePreview">
 										<p>jpg, png : 4mo max</p>
 									</div>
 

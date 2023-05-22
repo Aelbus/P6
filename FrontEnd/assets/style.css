@@ -93,11 +93,13 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
-	margin: 0;
 }
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
+}
+#logout {
+	display: none;
 }
 li:hover {
 	color: #B1663C;
@@ -271,10 +273,7 @@ footer {
 	color: rgb(230, 28, 28);
 	margin-bottom: 10px;
 }
-#logout {
-	display: none;
 
-}
 
 /** Barre d'edition **/
 .container-edit {
@@ -500,6 +499,7 @@ footer {
 	flex-direction: column;
 }
 .addImg {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -564,4 +564,30 @@ footer {
 	cursor: pointer;
 	color: #FFFFFF;
 	margin-top: 38px;
+}
+#imagePreview {
+	position: absolute;
+	max-width: 400px;
+	max-height: 155px;
+	object-fit: cover;
+}
+#returnPreview {
+	display: none;
+	z-index: 2;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	border-radius: 50%;
+	position: absolute;
+	top: 214px;
+	left: 40px;
+	width: 45px;
+	height: 45px;
+	background: #E8F1F7;
+	cursor: pointer;
+	color: #306685;
+	font-size: 18px;
+}
+#returnPreview:hover {
+	color: #CBD6DC;
 }

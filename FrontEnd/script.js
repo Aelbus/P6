@@ -167,9 +167,11 @@ function displayWorks(works) {
     });
 
     galeryContainer.appendChild(figure);
+
   });
 }
 function deleteWork(workId) {
+
 }
 async function displayWorksInModal() {
   const works = await getWorks();
@@ -177,3 +179,19 @@ async function displayWorksInModal() {
 }
 
 displayWorksInModal();
+
+// --- Prévisualisation de l'image Upload ModalAdd
+const changeFiles = document.getElementById("returnPreview")
+let image = document.getElementById("imagePreview");
+let previewPicture  = function (e) {
+  const [picture] = e.files
+  if (picture) {
+    image.src = URL.createObjectURL(picture)
+    changeFiles.style.display = "flex";
+  }
+};
+let deletePreviewPicture = function () {
+  image.src = "";
+  changeFiles.style.display = "none";
+};
+changeFiles.addEventListener("click", deletePreviewPicture); 
