@@ -162,15 +162,18 @@ li:hover {
 	flex-direction: column;
 }
 #contact input {
+	padding: 0 10px;
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 #contact label {
+	padding: 0 10px;
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
+	padding: 10px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -504,6 +507,8 @@ footer {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	width: 420px;
+	height: 169px;
 	background: #E8F1F7;
 	border-radius: 10px;
 	gap: 12px;
@@ -538,6 +543,9 @@ footer {
 .addImgInfo input {
 	text-align: center;	
 }
+.addImgInfo select {
+	text-align: center;
+}
 #titre, #categorie {
 	width: 420px;
 	height: 50px;
@@ -551,7 +559,7 @@ footer {
 	justify-content: center;
 }
 .btn-send {
-	background: #1D6154;
+	background: #1D6154; 
 	border-radius: 60px;
 	font-family: 'Syne';
 	font-style: normal;
@@ -580,14 +588,15 @@ footer {
 	border-radius: 50%;
 	position: absolute;
 	top: 214px;
-	left: 40px;
+	left: 85px;
 	width: 45px;
 	height: 45px;
 	background: #E8F1F7;
 	cursor: pointer;
-	color: #306685;
+	color: #CBD6DC;
 	font-size: 18px;
 }
 #returnPreview:hover {
-	color: #CBD6DC;
+	
+	color: #306685;
 }

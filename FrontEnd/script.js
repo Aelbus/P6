@@ -180,18 +180,67 @@ async function displayWorksInModal() {
 
 displayWorksInModal();
 
-// --- Prévisualisation de l'image Upload ModalAdd
+//-- Gestion de l'image Upload ModalAdd
 const changeFiles = document.getElementById("returnPreview")
+const addImgElements = document.querySelectorAll(".addImg i, .addImg label, .addImg input, .addImg p");
 let image = document.getElementById("imagePreview");
 let previewPicture  = function (e) {
   const [picture] = e.files
   if (picture) {
+    //-- Affichage du preview
     image.src = URL.createObjectURL(picture)
     changeFiles.style.display = "flex";
+    //-- Cache les elements de la div
+    addImgElements.forEach(element => {
+      element.style.display = "none";
+    //-- Ecrits par defaut le nom du fichier Upload
+    const titreInput = document.getElementById("titre");
+    const pictureName = picture.name;
+    const fileNameWithoutExtension = pictureName.split(".")[0]; // Exclure l'extension du nom de fichier
+    titreInput.value = fileNameWithoutExtension;
+    });
   }
 };
+//-- Bouton bonus pour retirer le preview et pouvoir changer d'image upload
 let deletePreviewPicture = function () {
   image.src = "";
   changeFiles.style.display = "none";
+  addImgElements.forEach(element => {
+    element.style.display = "inline-block";
+  });
 };
 changeFiles.addEventListener("click", deletePreviewPicture); 
+
+//-- gestion du label des catégories dans ModalAdd
+async function getCategories() {
+  const response = await fetch("http://localhost:5678/api/categories");
+  const categories = await response.json();
+  
+  //-- Filtrer la catégorie "Tous"
+  const filteredCategories = categories.filter(category => category.name !== "Tous");
+  
+  //-- Récupérer l'élément select
+  const selectElement = document.getElementById("categorie");
+  
+  //-- Réinitialiser le contenu du select
+  selectElement.innerHTML = "";
+  
+  //-- Ajouter une option vide par défaut
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.textContent = "";
+  selectElement.appendChild(defaultOption);
+  
+  //-- Créer les options du menu déroulant
+  filteredCategories.forEach(category => {
+    const option = document.createElement("option");
+    option.value = category.id;
+    option.textContent = category.name;
+    selectElement.appendChild(option);
+  });
+
+  //-- Sélectionner l'option vide par défaut
+  selectElement.selectedIndex = 0;
+
+  return filteredCategories;
+}
