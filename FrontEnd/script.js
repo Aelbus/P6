@@ -138,7 +138,7 @@ returnModal.addEventListener("click", function (){
 
 //----MODALGALERY----//
 
-//-- Affichage des element works dans la Modal "ModalGalery"
+//-- Affichage des éléments works dans la Modal "ModalGalery"
 function displayWorks(works) {
   const galeryContainer = document.querySelector('.galeryContainer');
 
@@ -168,18 +168,39 @@ function displayWorks(works) {
     editLink.textContent = 'Éditer';
     figure.appendChild(editLink);
 
-    // Gestionnaire d'événement pour la suppression d'un element
-    deleteIcon.addEventListener('click', () => {
-      deleteWork(work.id);
+    // Gestionnaire d'événement pour la suppression d'un élément
+    deleteIcon.addEventListener('click', async () => {
+      await deleteWork(work.id);
       figure.remove();
     });
 
     galeryContainer.appendChild(figure);
-
   });
 }
-function deleteWork(workId) {
 
+async function deleteWork(workId) {
+  try {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return;
+    }
+    const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.ok) {
+      console.log('supprimer avec succès');
+    } 
+    else {
+      console.log('Une erreur s\'est produite lors de la suppression');
+    }
+  } 
+  catch (error) {
+    console.log('Une erreur s\'est produite lors de la suppression', error);
+  }
 }
 async function displayWorksInModal() {
   const works = await getWorks();
@@ -194,35 +215,37 @@ displayWorksInModal();
 const changeFiles = document.getElementById("returnPreview")
 const addImgElements = document.querySelectorAll(".addImg i, .addImg label, .addImg input, .addImg p");
 let image = document.getElementById("imagePreview");
-let previewPicture  = function (e) {
-  const [picture] = e.files
+
+let previewPicture = function(e) {
+  const [picture] = e.files;
   if (picture) {
     //-- Affichage du preview
-    image.src = URL.createObjectURL(picture)
+    image.src = URL.createObjectURL(picture);
     changeFiles.style.display = "flex";
     //-- Cache les elements de la div
     addImgElements.forEach(element => {
       element.style.display = "none";
+    });
     //-- Ecrits par defaut le nom du fichier Upload
     const titreInput = document.getElementById("titre");
     const pictureName = picture.name;
     const fileNameWithoutExtension = pictureName.split(".")[0]; // Exclure l'extension du nom de fichier
     titreInput.value = fileNameWithoutExtension;
-    });
   }
 };
 //-- Bouton bonus pour retirer le preview et pouvoir changer d'image upload
-let deletePreviewPicture = function () {
+let deletePreviewPicture = function() {
   image.src = "";
   changeFiles.style.display = "none";
   addImgElements.forEach(element => {
     element.style.display = "inline-block";
   });
 };
-changeFiles.addEventListener("click", deletePreviewPicture); 
+changeFiles.addEventListener("click", deletePreviewPicture);
 
-//-- gestion du label des catégories dans ModalAdd
+//-- Gestion du label des catégories dans ModalAdd
 const selectCategories = document.getElementById("categorie");
+
 async function getCategoriesforLabel() {
   const response = await fetch("http://localhost:5678/api/categories");
   const categoriesForLabel = await response.json();
