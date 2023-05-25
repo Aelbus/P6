@@ -190,6 +190,7 @@ async function deleteWork(workId) {
       },
     });
     if (response.ok) {
+      showWorksByCategory(0);
       console.log('Supprimer avec succès');
     } 
     else {
@@ -265,3 +266,4 @@ async function getCategoriesforLabel() {
   });
 }
 getCategoriesforLabel();
+
