@@ -93,6 +93,11 @@ const modalContainer = document.querySelector(".modalContainer");
 const modalGalery = document.getElementById("modalGalery");
 const modalAdd = document.getElementById("modalAdd");
 
+
+
+
+//----MODAL----//
+
 //-- Afficher La Modal
 const modalTrigger = document.getElementById("modal-trigger");
 modalTrigger.addEventListener("click", function () {
@@ -116,21 +121,24 @@ window.addEventListener("click", function (event) {
   }
 });
 
-//-- Passage sur la modal ajouter photo
+//-- Passage sur la modal "ModalAdd"
 const addPicture = document.querySelector(".btn-addWork");
 addPicture.addEventListener("click", function (){
   modalGalery.style.display = "none";
   modalAdd.style.display = "block";
 })
 
-//-- Retour sur la modal Galery
+//-- Retour sur la modal "ModalGalery"
 const returnModal = document.querySelector(".btn-back");
 returnModal.addEventListener("click", function (){
   modalAdd.style.display = "none";
   modalGalery.style.display = "flex";
 })
 
-//-- Affichage des element works dans la galery Modal
+
+//----MODALGALERY----//
+
+//-- Affichage des element works dans la Modal "ModalGalery"
 function displayWorks(works) {
   const galeryContainer = document.querySelector('.galeryContainer');
 
@@ -160,7 +168,7 @@ function displayWorks(works) {
     editLink.textContent = 'Éditer';
     figure.appendChild(editLink);
 
-    // Gestionnaire d'événement pour la suppression
+    // Gestionnaire d'événement pour la suppression d'un element
     deleteIcon.addEventListener('click', () => {
       deleteWork(work.id);
       figure.remove();
@@ -179,6 +187,8 @@ async function displayWorksInModal() {
 }
 
 displayWorksInModal();
+
+//----MODALADD----//
 
 //-- Gestion de l'image Upload ModalAdd
 const changeFiles = document.getElementById("returnPreview")
@@ -212,35 +222,25 @@ let deletePreviewPicture = function () {
 changeFiles.addEventListener("click", deletePreviewPicture); 
 
 //-- gestion du label des catégories dans ModalAdd
-async function getCategories() {
+const selectCategories = document.getElementById("categorie");
+async function getCategoriesforLabel() {
   const response = await fetch("http://localhost:5678/api/categories");
-  const categories = await response.json();
-  
-  //-- Filtrer la catégorie "Tous"
-  const filteredCategories = categories.filter(category => category.name !== "Tous");
-  
-  //-- Récupérer l'élément select
-  const selectElement = document.getElementById("categorie");
-  
-  //-- Réinitialiser le contenu du select
-  selectElement.innerHTML = "";
-  
-  //-- Ajouter une option vide par défaut
-  const defaultOption = document.createElement("option");
-  defaultOption.value = "";
-  defaultOption.textContent = "";
-  selectElement.appendChild(defaultOption);
-  
-  //-- Créer les options du menu déroulant
-  filteredCategories.forEach(category => {
-    const option = document.createElement("option");
-    option.value = category.id;
-    option.textContent = category.name;
-    selectElement.appendChild(option);
+  const categoriesForLabel = await response.json();
+  // Réinitialiser le contenu du select
+  selectCategories.innerHTML = "";
+  // Ajouter un champ vide
+  const champVide = document.createElement("option");
+  champVide.value = "";
+  champVide.text = "";
+  selectCategories.appendChild(champVide);
+  // Parcourir les catégories et les ajouter au select
+  categoriesForLabel.forEach(category => {
+    if (category !== "tous") {
+      const optionnalCategories = document.createElement("option");
+      optionnalCategories.value = category.id;
+      optionnalCategories.text = category.name;
+      selectCategories.appendChild(optionnalCategories);
+    }
   });
-
-  //-- Sélectionner l'option vide par défaut
-  selectElement.selectedIndex = 0;
-
-  return filteredCategories;
 }
+getCategoriesforLabel();
