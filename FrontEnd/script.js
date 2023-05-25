@@ -94,8 +94,6 @@ const modalGalery = document.getElementById("modalGalery");
 const modalAdd = document.getElementById("modalAdd");
 
 
-
-
 //----MODAL----//
 
 //-- Afficher La Modal
@@ -192,7 +190,7 @@ async function deleteWork(workId) {
       },
     });
     if (response.ok) {
-      console.log('supprimer avec succès');
+      console.log('Supprimer avec succès');
     } 
     else {
       console.log('Une erreur s\'est produite lors de la suppression');
