@@ -113,37 +113,34 @@
 
 								<h2>Ajout photo</h2>
 
-								<form action="#" method="post" id="sendImg" enctype="multipart/form-data">
+								<form method="POST" id="sendImg" > 
 									<div id="returnPreview">
 										<i class="fa-solid fa-arrows-rotate"></i>
 									</div>
 									<div class="addImg">
 										<i class="fa-regular fa-image"></i>
 										<label for="uploadImg">+ Ajouter photo</label>
-										<input type="file" id="uploadImg" 
-											onchange="previewPicture(this)" 
-											accept=".jpg,.jpeg,.png">
+										<input type="file" id="uploadImg" onchange="previewPicture(this)"
+											accept=".jpg,.jpeg,.png" onchange="checkSubmitButton()">
 										<img src="#" alt="" id="imagePreview">
 										<p>jpg, png : 4mo max</p>
 									</div>
-
+		
 									<div class="addImgInfo">
 										<label for="titre">Titre</label>
-										<input type="text" name="titre" id="titre">
-
+										<input type="text" name="titre" id="titre" onchange="checkSubmitButton()">
+		
 										<label for="categorie">Catégorie</label>
-										<select name="categorie" id="categorie"></select>
+										<select name="categorie" id="categorie" onchange="checkSubmitButton()"></select>
 									</div>
-
 									<div class="separator"></div>
-
+		
 									<div class="btnModalModalAdd">
-										<button type="submit" class="btn-send" id="btnSubmit">
+										<p class="errorModal"></p>
+										<button disabled type="submit" class="btn-send" id="btnSubmit">
 											Valider
 										</button>
 									</div>
-
-
 								</form>
 
 							</div>

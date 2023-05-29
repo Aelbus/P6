@@ -559,6 +559,21 @@ footer {
 	justify-content: center;
 }
 .btn-send {
+	background: grey; 
+	border-radius: 60px;
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 17px;
+	padding: 10px 27px;
+	text-align: center;
+	width: 237px;
+	cursor: pointer;
+	color: #FFFFFF;
+	margin-top: 38px;
+}
+.active {
 	background: #1D6154; 
 	border-radius: 60px;
 	font-family: 'Syne';
@@ -572,6 +587,12 @@ footer {
 	cursor: pointer;
 	color: #FFFFFF;
 	margin-top: 38px;
+}
+.errorModal{
+	color: red;
+	font-size: 14px;
+	font-weight: 500;
+	margin: 22px 0 0 0;
 }
 #imagePreview {
 	position: absolute;
@@ -600,3 +621,4 @@ footer {
 	
 	color: #306685;
 }
+
